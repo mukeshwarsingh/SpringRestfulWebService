@@ -16,14 +16,18 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerAdminConfig {
 
 	@Bean
-	public Docket api() {
-		return new Docket(DocumentationType.SPRING_WEB).select().apis(RequestHandlerSelectors.any())
-
-				.build().pathMapping("/api").apiInfo(apiInfo());
-	}
+    public Docket api(){
+        return new Docket(DocumentationType.SPRING_WEB)
+            .select()
+            .apis(RequestHandlerSelectors.any())
+           /* .paths(regex("/api/.*"))*/
+            .build()
+            .pathMapping("/api/")
+            .apiInfo(apiInfo());
+    }
 
 	private ApiInfo apiInfo() {
-		ApiInfo apiInfo = new ApiInfo("Learning Field REST API", "This is a description of Learning Field REST API.",
+		ApiInfo apiInfo = new ApiInfo("TRC REST API", "This is a description of TRC REST API.",
 				"API TOS", "admin@vst.com", "API License", "API License URL", "API License URL");
 		return apiInfo;
 	}

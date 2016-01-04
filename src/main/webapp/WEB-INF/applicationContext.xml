@@ -10,10 +10,9 @@
     http://www.springframework.org/schema/mvc
     http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-	<context:component-scan base-package="com.vst.trc.controller,com.vst.trc.service.impl,
-	com.vst.trc.dao,com.vst.trc.handler.impl" />
+	<context:component-scan base-package="com.vst.trc.*" />
 	<mvc:annotation-driven />
-
+	<mvc:default-servlet-handler />
 	<bean id="customerVO" class="com.vst.trc.model.CustomerVO">
 		<property name="custID" value="cust1" />
 		<property name="name" value="Mukeshwar Singh" />
